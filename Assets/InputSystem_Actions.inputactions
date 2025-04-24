@@ -990,6 +990,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Mobile",
+            "id": "550d0868-090e-4ea7-993a-9e7c4ba94498",
+            "actions": [
+                {
+                    "name": "Accel",
+                    "type": "PassThrough",
+                    "id": "e07518b5-d7a8-40e4-9fc3-1b76085cc04a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "04732835-1dec-451d-adfc-140ece2673db",
+                    "path": "<Accelerometer>/acceleration/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

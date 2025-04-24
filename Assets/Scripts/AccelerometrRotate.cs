@@ -1,59 +1,47 @@
-using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AccelerometrRotate : MonoBehaviour
 {
-    private Rigidbody2D _rb;
-    [SerializeField] private Image _image;
+    private const float MULTIPLIER = 5.0f;
+    private const float SHAKING = 0.2f;
+    private const float BOOST = 5.0f;
 
-    private float force;
-    private float angle;
-    private float prev_angle = 0f;
-    private float multiplier = 5f;
-    private float shaking = 0.2f;
-    private float boost = 5f;
+    private Rigidbody2D _chip0RB;
+    private float _force;
+    private float _angle;
+    private Vector3 _anglev;
+    private float _prev_angle = 0.0f;
 
-    private float speed;
-    private Color newColor;
+    //Debug
+    [SerializeField]
+    public Object _text;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        newColor = _image.color;
+        _chip0RB = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        angle = Input.acceleration.x;
-        force = -(angle - prev_angle) * multiplier;
+        _angle = Input.acceleration.x;
+        _anglev = Input.acceleration;
+        _force = -(_angle - _prev_angle) * MULTIPLIER;
 
-        if (force > shaking | force < -shaking)
+        if (_force > SHAKING | _force < -SHAKING)
         {
-            if (angle > 0 && prev_angle < 0)
+            if (_angle > 0 && _prev_angle < 0)
             {
-                force *= boost;
+                _force *= BOOST;
             }
-            else if (angle < 0 && prev_angle > 0)
+            else if (_angle < 0 && _prev_angle > 0)
             {
-                force *= boost;
+                _force *= BOOST;
             }
-            _rb.AddTorque(force);
+            _chip0RB.AddTorque(_force);
         }
 
-        if (Input.touchCount > 0)
-        {
-            _rb.AddTorque(boost);
-        }
-
-        prev_angle = angle;
-    }
-
-    private void Update()
-    {
-        speed = Math.Abs(_rb.angularVelocity);
-        if (speed > (multiplier * 100)) speed = (multiplier * 100);
-        newColor.a = speed > 0 ? 1 / (multiplier * 100 / speed) : 0;
-        _image.color = newColor;
+        _prev_angle = _angle;
     }
 }

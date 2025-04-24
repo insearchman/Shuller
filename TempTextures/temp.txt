@@ -1,0 +1,59 @@
+
++2
+    _angle = 7
+    _prev_angle = 5
+    _force = -20
+    _prev_force = 0
++2
+    _angle = 9
+    _prev_angle = 7
+    _force = -20
+    _prev_force = -20
+-10 !
+    _angle = -1
+    _prev_angle = 9
+    _force = 100
+    _prev_force = -20
+    _sum = 
+-20
+    _angle = -21
+    _prev_angle = -1
+    _force = 200
+    _prev_force = 100
++20 !
+    _angle = 1
+    _prev_angle = -21
+    _force = -220
+    _prev_force = 200
+    _ sum = 
+
+_angle = 
+_prev_angle = 
+_force = 
+_prev_force = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
