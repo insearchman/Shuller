@@ -1,10 +1,47 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class GameCardsStateControl : MonoBehaviour
 {
     private List<Card> _selected = new();
     private List<Card> _discarded = new();
+
+    private Animator _animator;
+    private string _currentAnimationName;
+    private string _start_options = "start_options";
+    private string _start_game_36 = "start_game_36";
+    private string _start_game_52 = "start_game_52";
+
+
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
+    public void StartAnimation(string buttonName)
+    {
+        switch (buttonName)
+        {
+            case "Home":
+                ResetAll();
+                break;
+            case "Game Mode 36":
+                _currentAnimationName = _start_game_36;
+                break;
+            case "Game Mode 52":
+                _currentAnimationName = _start_game_52;
+                break;
+            case "Options":
+                _currentAnimationName = _start_options;
+                break;
+            default:
+                Debug.Log($"{this} - {System.Reflection.MethodBase.GetCurrentMethod().Name}: Unexpected parameter = {buttonName}");
+                break;
+        }
+        _animator.SetTrigger(_currentAnimationName);
+    }
 
     public void SetSelected(Card sender, bool isSelected)
     {
@@ -20,7 +57,8 @@ public class GameCardsStateControl : MonoBehaviour
 
     public void CancelAll()
     {
-        foreach (Card card in _selected) card.CancelSelection();
+        foreach (Card card in _selected)
+            card.CancelSelection();
         _selected.Clear();
     }
 
@@ -38,7 +76,8 @@ public class GameCardsStateControl : MonoBehaviour
     public void ResetAll()
     {
         CancelAll();
-        foreach (Card card in _discarded) card.SetDiscard(false);
+        foreach (Card card in _discarded) 
+            card.SetDiscard(false);
         _discarded.Clear();
     }
 }
