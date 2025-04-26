@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI debugGUI;
-    [SerializeField]
-    private MusicButton musicButton;
+    [SerializeField] private TextMeshProUGUI debugGUI;
+    [SerializeField] private MusicButton musicButton;
+    [SerializeField] private SoundButton soundButton;
 
     private void Start()
     {
@@ -34,11 +33,11 @@ public class Settings : MonoBehaviour
     {
         if (PlayerPrefs.GetFloat("Volume") == 1.0f)
         {
-            AudioListener.volume = 1.0f;
+            soundButton.VolumeSwitch(true);
         }
         else
         {
-            AudioListener.volume = 0.0f;
+            soundButton.VolumeSwitch(false);
         }
 
         if (PlayerPrefs.GetInt("Music") == 1)

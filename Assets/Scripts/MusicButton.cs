@@ -11,7 +11,7 @@ public class MusicButton : MonoBehaviour
 
     private bool _isOn;
 
-    private void Awake()
+    private void Start()
     {
         _musicButton = GetComponent<Image>();
         _gameMusic = GetComponent<AudioSource>();

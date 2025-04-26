@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class SoundButton : MonoBehaviour
 {
-    private Image _soundButton;
     [SerializeField] private Sprite _soundOn;
     [SerializeField] private Sprite _soundOff;
 
+    private Image _soundButton;
     private AudioSource _buttonClick;
 
-    private bool _isOn = true;
+    private bool _isOn;
 
     private const float maxVolume = 1.0f;
     private const float minVolume = 0.0f;
@@ -23,22 +23,26 @@ public class SoundButton : MonoBehaviour
     public void OnClick()
     {
         _isOn = !_isOn;
-        _buttonClick.Play();
         VolumeSwitch(_isOn);
     }
-    private void VolumeSwitch(bool state)
+    public void VolumeSwitch(bool state)
     {
         if (state)
         {
+            _buttonClick.Play();
             AudioListener.volume = maxVolume;
             _soundButton.sprite = _soundOn;
+            _soundButton.SetNativeSize();
             PlayerPrefs.SetFloat("Volume", maxVolume);
+            _isOn = true;
         }
         else
         {
             AudioListener.volume = minVolume;
             _soundButton.sprite = _soundOff;
+            _soundButton.SetNativeSize();
             PlayerPrefs.SetFloat("Volume", minVolume);
+            _isOn = false;
         }
     }
 }
