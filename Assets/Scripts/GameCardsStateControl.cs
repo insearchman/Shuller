@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class GameCardsStateControl : MonoBehaviour
@@ -54,29 +53,45 @@ public class GameCardsStateControl : MonoBehaviour
         }
     }
 
-    public void CancelSelected()
+    // Cancel button
+    public void CancelSelected(AudioSource audioSource)
     {
-        foreach (Card card in _selected)
-            card.CancelSelection();
-        _selected.Clear();
-    }
-
-    public void DiscardSelected()
-    {
-        foreach (Card card in _selected)
+        if (_selected.Count > 0)
         {
-            _discarded.Add(card);
-            card.CancelSelection();
-            card.SetDiscard(true);
+            audioSource.Play();
+            foreach (Card card in _selected)
+                card.CancelSelection();
+            _selected.Clear();
         }
-        _selected.Clear();
     }
 
+    //Discard button
+    public void DiscardSelected(AudioSource audioSource)
+    {
+        if (_selected.Count > 0)
+        {
+            audioSource.Play();
+            foreach (Card card in _selected)
+            {
+                _discarded.Add(card);
+                card.CancelSelection();
+                card.SetDiscard(true);
+            }
+            _selected.Clear();
+        }
+    }
+
+    //Home button
     public void ResetAll()
     {
-        CancelSelected();
-        foreach (Card card in _discarded) 
-            card.SetDiscard(false);
-        _discarded.Clear();
+        if (_selected.Count > 0)
+        {
+            foreach (Card card in _selected)
+                card.CancelSelection();
+            _selected.Clear();
+            foreach (Card card in _discarded)
+                card.SetDiscard(false);
+            _discarded.Clear();
+        }
     }
 }
