@@ -13,11 +13,13 @@ public class MusicButton : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Button>().onClick.AddListener(OnClick);
+
         _musicButton = GetComponent<Image>();
         _gameMusic = GetComponent<AudioSource>();
     }
 
-    public void OnClick()
+    private void OnClick()
     {
         _isOn = !_isOn;
         MusicSwitch(_isOn);

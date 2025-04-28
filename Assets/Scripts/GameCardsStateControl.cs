@@ -4,16 +4,15 @@ using System.Collections.Generic;
 
 public class GameCardsStateControl : MonoBehaviour
 {
+    private const string ANIMATION_OPTIONS = "start_options";
+    private const string ANIMATION_GAME_36 = "start_game_36";
+    private const string ANIMATION_GAME_52 = "start_game_52";
+
     private List<Card> _selected = new();
     private List<Card> _discarded = new();
 
     private Animator _animator;
     private string _currentAnimationName;
-    private string _start_options = "start_options";
-    private string _start_game_36 = "start_game_36";
-    private string _start_game_52 = "start_game_52";
-
-
 
     private void Start()
     {
@@ -28,13 +27,13 @@ public class GameCardsStateControl : MonoBehaviour
                 ResetAll();
                 break;
             case "Game Mode 36":
-                _currentAnimationName = _start_game_36;
+                _currentAnimationName = ANIMATION_GAME_36;
                 break;
             case "Game Mode 52":
-                _currentAnimationName = _start_game_52;
+                _currentAnimationName = ANIMATION_GAME_52;
                 break;
             case "Options":
-                _currentAnimationName = _start_options;
+                _currentAnimationName = ANIMATION_OPTIONS;
                 break;
             default:
                 Debug.Log($"{this} - {System.Reflection.MethodBase.GetCurrentMethod().Name}: Unexpected parameter = {buttonName}");
@@ -55,14 +54,14 @@ public class GameCardsStateControl : MonoBehaviour
         }
     }
 
-    public void CancelAll()
+    public void CancelSelected()
     {
         foreach (Card card in _selected)
             card.CancelSelection();
         _selected.Clear();
     }
 
-    public void DiscardAll()
+    public void DiscardSelected()
     {
         foreach (Card card in _selected)
         {
@@ -75,7 +74,7 @@ public class GameCardsStateControl : MonoBehaviour
 
     public void ResetAll()
     {
-        CancelAll();
+        CancelSelected();
         foreach (Card card in _discarded) 
             card.SetDiscard(false);
         _discarded.Clear();

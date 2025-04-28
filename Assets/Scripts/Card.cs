@@ -6,18 +6,20 @@ public class Card : MonoBehaviour
     [SerializeField] private Image _imageSelected;
     [SerializeField] private GameCardsStateControl _cardStateControl;
 
-    protected AudioSource _audioSource;
-
     private Animator _animator;
+    private AudioSource _audioSource;
+
     private bool _isSelected = false;
 
-    void Start()
+    private void Start()
     {
+        GetComponent<Button>().onClick.AddListener(OnClick);
+
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
     }
 
-    public void Select()
+    private void OnClick()
     {
         _isSelected = !_isSelected;
         _imageSelected.color = _isSelected ? Color.white : Color.clear;

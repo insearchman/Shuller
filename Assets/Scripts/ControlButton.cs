@@ -3,15 +3,14 @@ using UnityEngine.UI;
 
 public class ControlButton : MonoBehaviour
 {
-    [SerializeField]
-    private GameCardsStateControl _gameCardsStateControl;
+    [SerializeField] private GameCardsStateControl _gameCardsStateControl;
 
-    protected Button _button;
-    protected AudioSource _audioSource;
+    private Button _button;
+    private AudioSource _audioSource;
 
-    private const float _animationLeght = 0.3f;
+    private const float _animationLeght = 0.5f;
 
-    protected void Start()
+    private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
 
@@ -19,7 +18,7 @@ public class ControlButton : MonoBehaviour
         _button.onClick.AddListener(OnClick);
     }
 
-    public void OnClick()
+    private void OnClick()
     {
         _audioSource.Play();
 
@@ -29,5 +28,5 @@ public class ControlButton : MonoBehaviour
         _gameCardsStateControl.StartAnimation(name);
     }
 
-    protected void EnableButton() => _button.enabled = true;
+    private void EnableButton() => _button.enabled = true;
 }

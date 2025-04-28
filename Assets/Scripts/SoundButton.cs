@@ -16,11 +16,13 @@ public class SoundButton : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Button>().onClick.AddListener(OnClick);
+
         _soundButton = GetComponent<Image>();
         _buttonClick = GetComponent<AudioSource>();
     }
 
-    public void OnClick()
+    private void OnClick()
     {
         _isOn = !_isOn;
         VolumeSwitch(_isOn);
