@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AccelerometrRotate : MonoBehaviour
 {
@@ -14,11 +15,13 @@ public class AccelerometrRotate : MonoBehaviour
     private void Start()
     {
         _chip0 = GetComponent<Rigidbody2D>();
+
+        InputSystem.EnableDevice(Accelerometer.current);
     }
 
     private void FixedUpdate()
     {
-        _accelerationX = Input.acceleration.x;
+        _accelerationX = Accelerometer.current.acceleration.ReadValue().x;
         _force = -(_accelerationX - _prev_accelerationX);
 
         if (_force > SHAKING | _force < -SHAKING)
