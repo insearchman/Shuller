@@ -979,23 +979,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1575379913}
         m_TargetAssemblyTypeName: GameCardsStateControl, Assembly-CSharp
-        m_MethodName: DiscardAll
-        m_Mode: 1
+        m_MethodName: DiscardSelected
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 90875995}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 90875995}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4458,19 +4446,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 377180360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 377180358}
-        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &377180360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8393,7 +8369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugGUI: {fileID: 521075035}
   musicButton: {fileID: 2105316242}
-  soundButton: {fileID: 0}
+  soundButton: {fileID: 377180358}
 --- !u!114 &812754545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14506,23 +14482,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1575379913}
         m_TargetAssemblyTypeName: GameCardsStateControl, Assembly-CSharp
-        m_MethodName: CancelAll
-        m_Mode: 1
+        m_MethodName: CancelSelected
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1436685073}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1436685073}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -17270,7 +17234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ed76a784b61964caae143787ed9f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 521075031}
 --- !u!50 &1832167266
 Rigidbody2D:
   serializedVersion: 5
@@ -20151,19 +20114,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2105316240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2105316242}
-        m_TargetAssemblyTypeName: MusicButton, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2105316240
 MonoBehaviour:
   m_ObjectHideFlags: 0

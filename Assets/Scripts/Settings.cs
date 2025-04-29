@@ -4,12 +4,13 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI debugGUI;
+    [SerializeField] private bool debugGUIEnabled = false;
     [SerializeField] private MusicButton musicButton;
     [SerializeField] private SoundButton soundButton;
 
     private void Start()
     {
-        debugGUI.enabled = false;
+        debugGUI.enabled = debugGUIEnabled;
         //debugGUI.text = Application.targetFrameRate.ToString();
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
