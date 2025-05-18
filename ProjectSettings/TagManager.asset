@@ -42,5 +42,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Clean
+    uniqueID: 126676159
+    locked: 0
+  - name: Selected
+    uniqueID: 2976495667
+    locked: 0
+  - name: ToMe
+    uniqueID: 1709530545
+    locked: 0
+  - name: ToEnemy
+    uniqueID: 1396101507
+    locked: 0
+  - name: Discard
+    uniqueID: 1655648437
+    locked: 0
+  - name: Device
+    uniqueID: 4157631125
+    locked: 0
   m_RenderingLayers:
   - Default
