@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    SpriteMask mask;
+    //SpriteMask mask;
     private void Start()
     {
-        mask = GetComponent<SpriteMask>();
+        //mask = GetComponent<SpriteMask>();
     }
 
     public void TTTEST()
     {
-        int maskid = mask.frontSortingLayerID;
-        Debug.Log("Selected id = " + maskid);
+        //int maskid = mask.frontSortingLayerID;
+        Debug.Log("!!!");
     }
 }
