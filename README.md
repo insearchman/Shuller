@@ -14,3 +14,12 @@ ToDo:
 - switch on yandex ads
 - customization: background textures, cards texture, cards animation, music, sounds
 - shop
+
+How to view:
+- download repo
+- add this as a project on UnityHub
+- in Unity:
+-- switch platform to Android
+-- open: Scenes > main
+-- select some object with TextMeshPro component (ex.: UI Game > Game Name > Text). Integrate TextMeshPro asset.
+- ready
